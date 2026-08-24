@@ -130,6 +130,10 @@
   .pillar-mini .pct{ font-weight:800; font-size:20px; color:var(--accent); }
   .pillar-mini .full{ font-size:11px; color:var(--text-400); margin-top:2px; }
   .pillar-mini .one-liner{ font-size:12.5px; color:var(--text-600); margin-top:8px; line-height:1.5; }
+  .bar-track{ height:6px; border-radius:99px; background:var(--surface-2); overflow:hidden; }
+  .pillar-mini .bar-track{ margin-top:10px; }
+  .bar-fill{ height:100%; border-radius:99px; background:var(--accent); }
+  .score-breakdown .bar-track{ margin:3px 0 9px; }
 
   .kpi-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; }
   @media (max-width:700px){ .kpi-grid{grid-template-columns:repeat(2,1fr);} }
@@ -261,7 +265,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 21:03:35 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 21:16:48 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -298,13 +302,21 @@
         <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false">Show how this score is calculated</button>
         <div class="score-breakdown" id="scoreBreakdown">
           <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
           <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
           <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
           <div class="row"><span>Image alt-text coverage</span><b>4.9 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div>
           <div class="row"><span>Heading structure</span><b>6.7 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:67%;"></div></div>
           <div class="row"><span>Title and meta best practice</span><b>6.6 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:66%;"></div></div>
           <div class="row"><span>Structured data coverage</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
           <div class="row"><span>Content integrity (security)</span><b>10 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
           <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>93.2 / 110 -&gt; 85/100</b></div>
         </div>
       </div>
@@ -314,16 +326,19 @@
         <div class="pillar-mini-grid">
           <button class="pillar-mini" data-goto="seo">
             <div class="top-row"><span class="name">SEO</span><span class="pct">55%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:55%;"></div></div>
             <div class="full">Showing up in a regular Google search</div>
             <div class="one-liner">55% : solid technical base, a few pages overlap</div>
           </button>
           <button class="pillar-mini" data-goto="aeo">
             <div class="top-row"><span class="name">AEO</span><span class="pct">65%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:65%;"></div></div>
             <div class="full">Being the direct answer Google shows</div>
             <div class="one-liner">65% : good writing style, missing some tagging</div>
           </button>
           <button class="pillar-mini" data-goto="geo">
             <div class="top-row"><span class="name">GEO</span><span class="pct">44%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:44%;"></div></div>
             <div class="full">Getting recommended by AI chatbots</div>
             <div class="one-liner">44% : no AI-visibility tracking set up yet</div>
           </button>
@@ -623,7 +638,7 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
     {status:"Partial", title:"Some early signs AI tools already notice the site", finding:"Even without a tracking system, the site already has some of the basics AI tools look for: clear content, working HTTPS, and a real person, the founder, named on the About page.", rec:"Build on this by fixing the gaps below."},
     {status:"Fail", title:"Only one online profile linked", finding:"The site only links out to one other place: LinkedIn. AI tools tend to trust a business more when it shows up consistently in multiple places, like a Google Business Profile or a review site.", rec:"Set up and link a Google Business Profile and a review-site listing, such as Clutch."},
     {status:"Partial", title:"Brand name inconsistency (same issue as AEO)", finding:"Same naming inconsistency flagged under AEO. It matters even more here, since AI tools rely on that consistency to confidently identify Digital Rocket as one distinct business.", rec:"Fix it once. It helps both the AEO and GEO scores."},
-    {status:"NotTested", title:"Not enough published content yet to be seen as an expert", finding:"AI tools tend to recommend sites that have published a lot of in-depth, trustworthy content on a topic. The site currently has 7 blog posts.", rec:"Publish new, in-depth articles on a regular schedule, weekly or every two weeks."}
+    {status:"NotTested", title:"Not enough published content yet to be seen as an expert", finding:"AI tools tend to recommend sites that have published a lot of in-depth, trustworthy content on a topic. The site currently has 6 blog posts.", rec:"Publish new, in-depth articles on a regular schedule, weekly or every two weeks."}
   ];
 
   /* ---------------- tabs ---------------- */
