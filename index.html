@@ -111,8 +111,13 @@
   .score-note{font-size:12px; color:var(--text-400); margin-top:10px; line-height:1.5;}
   .score-toggle{ margin-top:12px; background:none; border:1px dashed var(--line); color:var(--text-600); font-family:var(--sans); font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:99px; cursor:pointer; }
   .score-toggle:hover{ border-color:var(--accent); color:var(--accent); }
-  .score-breakdown{ position:absolute; left:0; right:0; top:100%; margin-top:10px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:14px 16px; text-align:left; display:none; z-index:30; }
-  .score-breakdown.show{display:block;}
+  .score-modal-backdrop{ position:fixed; inset:0; background:rgba(17,24,39,.5); z-index:200; display:none; align-items:center; justify-content:center; padding:24px; }
+  .score-modal-backdrop.show{display:flex;}
+  .score-modal{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 20px 20px; max-width:420px; width:100%; max-height:80vh; overflow-y:auto; }
+  .score-modal-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+  .score-modal-head h3{ font-family:var(--sans); font-size:15px; font-weight:800; color:var(--text-900); margin:0; }
+  .score-modal-close{ background:none; border:none; font-size:20px; line-height:1; color:var(--text-400); cursor:pointer; padding:2px 4px; }
+  .score-modal-close:hover{ color:var(--accent); }
   .score-breakdown div.row{ display:flex; justify-content:space-between; gap:8px; font-size:12px; padding:3px 0; color:var(--text-600); }
   .score-breakdown div.row b{color:var(--text-900); font-family:var(--mono); font-weight:600; white-space:nowrap;}
 
@@ -220,6 +225,10 @@
   dl.readout .item:first-child{border-top:none;}
   dl.readout dt{font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-400);}
   dl.readout dd{margin:0; font-size:13px; color:var(--text-900); line-height:1.5;}
+  ul.changelog{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  ul.changelog li{display:flex; gap:12px; font-size:13px; color:var(--text-600); line-height:1.5; padding-top:10px; border-top:1px solid var(--line);}
+  ul.changelog li:first-child{padding-top:0; border-top:none;}
+  ul.changelog .clog-date{font-family:var(--mono); font-size:11px; color:var(--text-400); white-space:nowrap; padding-top:2px;}
   code.inline{ font-family:var(--mono); font-size:12px; background:var(--surface-2); padding:1px 5px; border-radius:4px; }
   .robots-block{ font-family:var(--mono); font-size:12px; background:var(--surface-2); border-radius:6px; padding:12px 14px; line-height:1.7; white-space:pre-wrap; color:var(--text-900); }
   .sitemap-list{list-style:none; margin:0; padding:0; font-family:var(--mono); font-size:12px;}
@@ -265,7 +274,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 21:56:21 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 22:08:07 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -299,26 +308,7 @@
         </div>
         <span class="band-pill">Good</span>
         <p class="score-note">11 checks reviewed this run, 0 need urgent attention</p>
-        <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false">Show how this score is calculated</button>
-        <div class="score-breakdown" id="scoreBreakdown">
-          <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-          <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-          <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-          <div class="row"><span>Image alt-text coverage</span><b>4.9 / 15</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div>
-          <div class="row"><span>Heading structure</span><b>6.7 / 10</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:67%;"></div></div>
-          <div class="row"><span>Title and meta best practice</span><b>6.6 / 10</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:66%;"></div></div>
-          <div class="row"><span>Structured data coverage</span><b>15 / 15</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-          <div class="row"><span>Content integrity (security)</span><b>10 / 10</b></div>
-          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
-          <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>93.2 / 110 -&gt; 85/100</b></div>
-        </div>
+        <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false" aria-haspopup="dialog">Show how this score is calculated</button>
       </div>
 
       <div>
@@ -364,6 +354,34 @@
       <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 85 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
     </div>
   </section>
+
+  <div class="score-modal-backdrop" id="scoreModalBackdrop">
+    <div class="score-modal" role="dialog" aria-modal="true" aria-label="How the site health score is calculated">
+      <div class="score-modal-head">
+        <h3>How this score is calculated</h3>
+        <button class="score-modal-close" id="scoreModalClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="score-breakdown" id="scoreBreakdown">
+          <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="row"><span>Image alt-text coverage</span><b>4.9 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div>
+          <div class="row"><span>Heading structure</span><b>6.7 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:67%;"></div></div>
+          <div class="row"><span>Title and meta best practice</span><b>6.6 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:66%;"></div></div>
+          <div class="row"><span>Structured data coverage</span><b>15 / 15</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="row"><span>Content integrity (security)</span><b>10 / 10</b></div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div>
+          <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>93.2 / 110 -&gt; 85/100</b></div>
+      </div>
+    </div>
+  </div>
 
   <!-- ============ SEO ============ -->
   <section class="panel" id="panel-seo">
@@ -524,6 +542,17 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
           <div class="item"><dt>Note</dt><dd>The de-branded GitHub Pages copy of this dashboard and the claude.ai Artifact link are refreshed independently &mdash; the desktop button updates GitHub Pages, the weekly cloud agent updates the Artifact link.</dd></div>
         </dl>
       </div>
+
+      <div class="tech-card" style="grid-column:1 / -1;">
+        <h3>Change log</h3>
+        <ul class="changelog">
+          <li><span class="clog-date">2026-08-24</span><span>Corrected GEO finding: blog post count was 7, live sitemap confirms 6 published posts.</span></li>
+          <li><span class="clog-date">2026-08-24</span><span>Backlinks / Domain Rating populated from Semrush Backlink Analytics -- 54 backlinks, 42 referring domains, Authority Score 6/100. Previously unavailable (Ahrefs/Semrush API plan limits).</span></li>
+          <li><span class="clog-date">2026-08-24</span><span>Added the Digital Rocket brand logo to the dashboard header, replacing the placeholder icon.</span></li>
+          <li><span class="clog-date">2026-08-24</span><span>Added score-comparison bars to the SEO/AEO/GEO overview cards and the score breakdown.</span></li>
+          <li><span class="clog-date">2026-08-24</span><span>Site health score breakdown changed from an inline panel to a dialog, so opening it no longer shifts or overlaps the Executive summary section.</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -682,12 +711,17 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
     }
     requestAnimationFrame(step);
   })();
-  document.getElementById('scoreToggleBtn').addEventListener('click', function(){
-    var el = document.getElementById('scoreBreakdown');
-    var open = el.classList.toggle('show');
-    this.setAttribute('aria-expanded', open);
-    this.textContent = open ? 'Hide how this score is calculated' : 'Show how this score is calculated';
-  });
+  (function(){
+    var toggleBtn = document.getElementById('scoreToggleBtn');
+    var backdrop = document.getElementById('scoreModalBackdrop');
+    var closeBtn = document.getElementById('scoreModalClose');
+    function openModal(){ backdrop.classList.add('show'); toggleBtn.setAttribute('aria-expanded', true); }
+    function closeModal(){ backdrop.classList.remove('show'); toggleBtn.setAttribute('aria-expanded', false); }
+    toggleBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', function(e){ if (e.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+  })();
 
   /* ---------------- findings renderer (shared by SEO/AEO/GEO tabs) ---------------- */
   function statusLabel(s){ return {Fail:"Needs fixing", Partial:"Could improve", Pass:"Working well", NotTested:"Not checked yet"}[s] || s; }
