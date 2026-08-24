@@ -109,6 +109,12 @@
   .gauge-num .max{font-family:var(--mono); font-size:11px; color:var(--text-400);}
   .band-pill{ margin-top:10px; font-family:var(--sans); font-size:12px; font-weight:700; padding:4px 12px; border-radius:99px; background:var(--accent-tint); color:var(--accent); }
   .score-note{font-size:12px; color:var(--text-400); margin-top:10px; line-height:1.5;}
+  .score-toggle{ margin-top:12px; background:none; border:1px dashed var(--line); color:var(--text-600); font-family:var(--sans); font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:99px; cursor:pointer; }
+  .score-toggle:hover{ border-color:var(--accent); color:var(--accent); }
+  .score-breakdown{ margin-top:12px; width:100%; text-align:left; display:none; border-top:1px solid var(--line); padding-top:10px; }
+  .score-breakdown.show{display:block;}
+  .score-breakdown div.row{ display:flex; justify-content:space-between; gap:8px; font-size:12px; padding:3px 0; color:var(--text-600); }
+  .score-breakdown div.row b{color:var(--text-900); font-family:var(--mono); font-weight:600;}
 
   .plain-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; display:flex; flex-direction:column; justify-content:center; }
   .plain-eyebrow{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--accent-strong); text-transform:uppercase; margin-bottom:8px; }
@@ -255,7 +261,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 19:52:15 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 20:09:43 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -289,12 +295,23 @@
         </div>
         <span class="band-pill">Good</span>
         <p class="score-note">How well the website's technical setup (speed, structure, links) is built for search engines.</p>
+        <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false">Show how this score is calculated</button>
+        <div class="score-breakdown" id="scoreBreakdown">
+          <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
+          <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
+          <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
+          <div class="row"><span>Image alt-text coverage</span><b>4.9 / 15</b></div>
+          <div class="row"><span>Heading structure</span><b>6.7 / 10</b></div>
+          <div class="row"><span>Title and meta best practice</span><b>6.6 / 10</b></div>
+          <div class="row"><span>Structured data coverage</span><b>15 / 15</b></div>
+          <div class="row"><span>Content integrity (security)</span><b>10 / 10</b></div>
+          <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>93.2 / 110 -&gt; 85/100</b></div>
+        </div>
       </div>
 
       <div class="plain-card">
-        <div class="plain-eyebrow">In plain terms</div>
-        <h2 class="plain-headline">The site is technically solid -- the real opportunity is being found by AI</h2>
-        <p class="plain-body">Think of this in three parts. First, can Google find and read the site properly? Yes -- 85 out of 100, with 0 broken links and 0 security red flags this run. Second, does it show up as a direct answer in search? Partly -- SEO is at 55% and AEO at 65%, both held back by a few specific, fixable gaps (see their tabs). Third, do AI chatbots like ChatGPT recommend it? Not yet -- GEO is at 44%, mainly because nobody has set up a way to check this yet. Fixing the handful of items listed under each tab would lift all three.</p>
+        <h2 class="plain-headline">The technical foundation is solid. The real gap is being found by AI, not Google.</h2>
+        <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 85 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
       </div>
     </div>
 
@@ -303,17 +320,17 @@
       <button class="pillar-mini" data-goto="seo">
         <div class="top-row"><span class="name">SEO</span><span class="pct">55%</span></div>
         <div class="full">Showing up in a regular Google search</div>
-        <div class="one-liner">55% -- solid technical base, a few pages overlap</div>
+        <div class="one-liner">55% : solid technical base, a few pages overlap</div>
       </button>
       <button class="pillar-mini" data-goto="aeo">
         <div class="top-row"><span class="name">AEO</span><span class="pct">65%</span></div>
         <div class="full">Being the direct answer Google shows</div>
-        <div class="one-liner">65% -- good writing style, missing some tagging</div>
+        <div class="one-liner">65% : good writing style, missing some tagging</div>
       </button>
       <button class="pillar-mini" data-goto="geo">
         <div class="top-row"><span class="name">GEO</span><span class="pct">44%</span></div>
         <div class="full">Getting recommended by AI chatbots</div>
-        <div class="one-liner">44% -- no AI-visibility tracking set up yet</div>
+        <div class="one-liner">44% : no AI-visibility tracking set up yet</div>
       </button>
     </div>
 
@@ -336,7 +353,7 @@
       </div>
       <div>
         <div class="pillar-what">What this means</div>
-        <p class="pillar-what-body">SEO (Search Engine Optimisation) is everything that helps the website show up when someone searches on Google &mdash; the technical setup, the words on each page, and how trustworthy the site looks.</p>
+        <p class="pillar-what-body">SEO (Search Engine Optimisation) covers everything that helps the website show up in a Google search: the technical setup, the words on each page, and how trustworthy the site looks.</p>
       </div>
     </div>
     <div class="filter-bar">
@@ -360,7 +377,7 @@
       </div>
       <div>
         <div class="pillar-what">What this means</div>
-        <p class="pillar-what-body">AEO (Answer Engine Optimisation) is about being the direct answer &mdash; when Google shows a quick answer box, or someone asks a voice assistant a question, is this site structured so it can be picked as the answer?</p>
+        <p class="pillar-what-body">AEO (Answer Engine Optimisation) is about being the direct answer. When Google shows a quick answer box, or someone asks a voice assistant a question, is the site structured so it can be picked?</p>
       </div>
     </div>
     <div class="filter-bar">
@@ -383,7 +400,7 @@
       </div>
       <div>
         <div class="pillar-what">What this means</div>
-        <p class="pillar-what-body">GEO (Generative Engine Optimisation) is about being recommended by AI chatbots like ChatGPT, Gemini and Perplexity &mdash; when someone asks an AI "who's a good growth marketing agency in Dubai", does it mention Digital Rocket?</p>
+        <p class="pillar-what-body">GEO (Generative Engine Optimisation) is about getting recommended by AI chatbots like ChatGPT, Gemini and Perplexity. When someone asks one of them who's a good growth marketing agency in Dubai, does it mention Digital Rocket?</p>
       </div>
     </div>
     <div class="filter-bar">
@@ -571,35 +588,35 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
 
   /* SEO findings = automated crawl issues (relabelled to Pass/Partial/Fail) + manual SEO checklist highlights */
   var SEO_FINDINGS = [
-    {status:"Partial", title:"On-Page / Title Tag", finding:"5 of 35 sampled title tags fall outside the ~30-60 character best-practice range.", rec:"Tighten long titles to under ~60 characters; lengthen very short ones for stronger keyword coverage."},
-    {status:"Partial", title:"On-Page / Meta Description", finding:"19 of 35 sampled meta descriptions fall outside the ~120-160 character best-practice range.", rec:"Trim over-length descriptions to under 160 characters; lengthen very short ones."},
+    {status:"Partial", title:"On-Page / Title Tag", finding:"5 of 35 audited title tags fall outside the ~30-60 character best-practice range.", rec:"Tighten long titles to under ~60 characters; lengthen very short ones for stronger keyword coverage."},
+    {status:"Partial", title:"On-Page / Meta Description", finding:"19 of 35 audited meta descriptions fall outside the ~120-160 character best-practice range.", rec:"Trim over-length descriptions to under 160 characters; lengthen very short ones."},
     {status:"Partial", title:"On-Page / Heading Structure", finding:"12 page(s) do not have exactly one H1, diluting the primary topical signal.", rec:"Consolidate to a single H1 per page; demote extras to H2."},
     {status:"Partial", title:"Content Structure", finding:"11 page(s) have no H2 subheadings despite body copy, reducing scannability.", rec:"Break long-form copy into labelled H2 sections."},
-    {status:"Partial", title:"Accessibility / Image SEO", finding:"35 of 35 pages have at least one image missing alt text (240 images total across the sample).", rec:"Audit the shared theme template and page-specific images; add descriptive alt text sitewide."},
+    {status:"Partial", title:"Accessibility / Image SEO", finding:"35 of 35 pages have at least one image missing alt text (240 images missing alt text in total).", rec:"Audit the shared theme template and page-specific images; add descriptive alt text sitewide."},
     {status:"Pass", title:"Internal Linking", finding:"Zero broken (4xx/5xx) internal links found.", rec:"Continue periodic link-rot checks, especially after content pruning."},
-    {status:"Pass", title:"Indexability", finding:"No noindex directives found; all sampled pages are indexable.", rec:"No action needed."},
+    {status:"Pass", title:"Indexability", finding:"No noindex directives found; all audited pages are indexable.", rec:"No action needed."},
     {status:"Pass", title:"Mobile / HTTPS", finding:"Viewport meta tag present sitewide and HTTPS enforced on every URL checked.", rec:"No action needed."},
     {status:"Pass", title:"Crawlability", finding:"Valid robots.txt found and the sitemap index resolved with 3 sub-sitemaps.", rec:"No action needed."},
     {status:"Pass", title:"Content Depth", finding:"Average 966 words per page (range 170-3153).", rec:"No action needed."},
     {status:"Pass", title:"Content Integrity / Security", finding:"No spam/injected off-site anchor text patterns found this run.", rec:"No action needed. Keep this check running on every refresh."},
-    {status:"Partial", title:"Four pages compete for the same search", finding:"Four different pages (seo-services, seo-services-abu-dhabi, seo-agency-dubai, real-estate-seo-dubai) all target very similar 'SEO services' searches. When pages compete like this, Google can get confused about which one to show.", rec:"Make sure each page is clearly about something different, or combine the weakest ones."},
-    {status:"NotTested", title:"Google's own tracking tool isn't connected", finding:"Google Search Console -- the free tool that shows exactly how the site performs in real Google searches -- isn't connected yet, so some things can't be checked.", rec:"Connect Google Search Console; it takes about 10 minutes."},
-    {status:"NotTested", title:"Page loading speed hasn't been measured yet", finding:"How fast pages load on a phone or slow connection hasn't been formally tested -- a slow homepage video, for example, could be a hidden speed problem.", rec:"Run a free speed test (Google PageSpeed Insights) on the homepage and top pages."},
-    {status:"Partial", title:"'About Us' page is quite short", finding:"The About Us page -- one of the most important pages for building trust -- is only about 200 words, even though the founder has a strong track record worth telling.", rec:"Expand this page with real details about experience, results, and the team."}
+    {status:"Partial", title:"Four pages compete for the same search", finding:"Four pages (seo-services, seo-services-abu-dhabi, seo-agency-dubai, real-estate-seo-dubai) all target very similar 'SEO services' searches. When pages compete like this, Google can get confused about which one to show.", rec:"Make sure each page is clearly about something different, or combine the weakest ones."},
+    {status:"NotTested", title:"Google's own tracking tool isn't connected", finding:"Google Search Console (the free tool that shows how the site actually performs in real Google searches) isn't connected yet, so some things can't be checked.", rec:"Connect Google Search Console. It takes about 10 minutes."},
+    {status:"NotTested", title:"Page loading speed hasn't been measured yet", finding:"How fast pages load on a phone or a slow connection hasn't been formally tested. A slow homepage video, for example, could be a hidden speed problem.", rec:"Run a free speed test (Google PageSpeed Insights) on the homepage and top pages."},
+    {status:"Partial", title:"'About Us' page is quite short", finding:"The About Us page is one of the most important pages for building trust, and it's only about 200 words even though the founder has a strong track record worth telling.", rec:"Expand this page with real details about experience, results, and the team."}
   ];
   var AEO_FINDINGS = [
-    {status:"Pass", title:"Content answers questions directly", finding:"Blog posts already open sections with a clear, direct answer before going into detail -- for example, defining 'What is GEO?' right away instead of building up to it. This is exactly what Google and AI systems look for.", rec:"Keep writing this way for every new page and post."},
-    {status:"Partial", title:"FAQ sections aren't all tagged for Google", finding:"One page (seo-agency-dubai) has its FAQ questions specially tagged so Google can show them directly in search results. The GEO blog post has FAQ-style content too, but it isn't tagged the same way yet.", rec:"Add the same FAQ tagging to the GEO blog post."},
+    {status:"Pass", title:"Content answers questions directly", finding:"Blog posts already open sections with a clear, direct answer before going into detail. The GEO post defines 'What is GEO?' right away instead of building up to it, which is exactly what Google and AI tools look for.", rec:"Keep writing this way for every new page and post."},
+    {status:"Partial", title:"FAQ sections aren't all tagged for Google", finding:"One page, seo-agency-dubai, has its FAQ questions tagged so Google can show them directly in search results. The GEO blog post has FAQ-style content too, but it isn't tagged the same way.", rec:"Add the same FAQ tagging to the GEO blog post."},
     {status:"Fail", title:"Step-by-step guides aren't marked as 'how-to' content", finding:"The GEO blog post walks through a 9-step process, but it isn't marked up in a way that lets Google feature it as a step-by-step guide.", rec:"Add 'how-to' markup to this post and any future step-by-step guides."},
-    {status:"Fail", title:"No breadcrumb trail markup", finding:"None of the pages checked have the small 'Home > Blog > Article' navigation trail marked up for search engines -- this helps both people and AI tools understand how the site is organized.", rec:"Add this site-wide; it's a one-time technical fix."},
-    {status:"Partial", title:"Brand name isn't written the same way everywhere", finding:"The website mostly says 'Digital Rocket', but the web address is 'digital-rocket.io' -- small inconsistencies like this make it slightly harder for AI tools to recognize it's the same business everywhere.", rec:"Pick one version of the name and use it consistently across the site and any linked profiles."}
+    {status:"Fail", title:"No breadcrumb trail markup", finding:"None of the pages checked have the small 'Home > Blog > Article' navigation trail marked up for search engines. That trail helps both people and AI tools understand how the site is organized.", rec:"Add this site-wide. It's a one-time technical fix."},
+    {status:"Partial", title:"Brand name isn't written the same way everywhere", finding:"The site mostly says 'Digital Rocket', but the web address is 'digital-rocket.io'. Small inconsistencies like this make it slightly harder for AI tools to recognize it's the same business everywhere.", rec:"Pick one version of the name and use it consistently across the site and any linked profiles."}
   ];
   var GEO_FINDINGS = [
-    {status:"NotTested", title:"No way yet to check if AI chatbots mention Digital Rocket", finding:"There's currently no system in place to see whether ChatGPT, Gemini or Perplexity ever mention or recommend Digital Rocket when someone asks about growth marketing agencies in Dubai. This needs to exist before anything else here can be measured.", rec:"Set up a simple list of 15-20 real questions people might ask an AI, and check the answers regularly."},
-    {status:"Partial", title:"Some early signs AI tools already notice the site", finding:"Even without a formal tracking system, the site already has some of the basics AI tools look for -- clear content, working HTTPS, and a real person (the founder) named on the About page.", rec:"Build on this by fixing the gaps below."},
-    {status:"Fail", title:"Only one online profile linked", finding:"The website only links out to one other place online -- LinkedIn. AI tools tend to trust a business more when it shows up consistently in multiple places, like Google Business Profile or review sites.", rec:"Set up and link a Google Business Profile and a review-site listing (e.g. Clutch)."},
-    {status:"Partial", title:"Brand name inconsistency (same issue as AEO)", finding:"Same naming inconsistency as flagged under AEO -- this matters even more for AI tools trying to confidently identify Digital Rocket as one distinct business.", rec:"Fix once, and it helps both AEO and GEO scores."},
-    {status:"NotTested", title:"Not enough published content yet to be seen as an expert", finding:"AI tools tend to recommend sites that have published a lot of in-depth, trustworthy content on a topic. The site currently has only 7 blog posts.", rec:"Publish new, in-depth articles on a regular schedule (weekly or every two weeks)."}
+    {status:"NotTested", title:"No way yet to check if AI chatbots mention Digital Rocket", finding:"There's no system in place to see whether ChatGPT, Gemini or Perplexity ever mention Digital Rocket when someone asks about growth marketing agencies in Dubai. Nothing else in this category can really be measured until that exists.", rec:"Set up a simple list of 15 to 20 real questions people might ask an AI, and check the answers regularly."},
+    {status:"Partial", title:"Some early signs AI tools already notice the site", finding:"Even without a tracking system, the site already has some of the basics AI tools look for: clear content, working HTTPS, and a real person, the founder, named on the About page.", rec:"Build on this by fixing the gaps below."},
+    {status:"Fail", title:"Only one online profile linked", finding:"The site only links out to one other place: LinkedIn. AI tools tend to trust a business more when it shows up consistently in multiple places, like a Google Business Profile or a review site.", rec:"Set up and link a Google Business Profile and a review-site listing, such as Clutch."},
+    {status:"Partial", title:"Brand name inconsistency (same issue as AEO)", finding:"Same naming inconsistency flagged under AEO. It matters even more here, since AI tools rely on that consistency to confidently identify Digital Rocket as one distinct business.", rec:"Fix it once. It helps both the AEO and GEO scores."},
+    {status:"NotTested", title:"Not enough published content yet to be seen as an expert", finding:"AI tools tend to recommend sites that have published a lot of in-depth, trustworthy content on a topic. The site currently has 7 blog posts.", rec:"Publish new, in-depth articles on a regular schedule, weekly or every two weeks."}
   ];
 
   /* ---------------- tabs ---------------- */
@@ -641,6 +658,12 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
     }
     requestAnimationFrame(step);
   })();
+  document.getElementById('scoreToggleBtn').addEventListener('click', function(){
+    var el = document.getElementById('scoreBreakdown');
+    var open = el.classList.toggle('show');
+    this.setAttribute('aria-expanded', open);
+    this.textContent = open ? 'Hide how this score is calculated' : 'Show how this score is calculated';
+  });
 
   /* ---------------- findings renderer (shared by SEO/AEO/GEO tabs) ---------------- */
   function statusLabel(s){ return {Fail:"Needs fixing", Partial:"Could improve", Pass:"Working well", NotTested:"Not checked yet"}[s] || s; }
