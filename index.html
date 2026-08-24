@@ -114,7 +114,7 @@
   .score-breakdown{ margin-top:12px; width:100%; text-align:left; display:none; border-top:1px solid var(--line); padding-top:10px; }
   .score-breakdown.show{display:block;}
   .score-breakdown div.row{ display:flex; justify-content:space-between; gap:8px; font-size:12px; padding:3px 0; color:var(--text-600); }
-  .score-breakdown div.row b{color:var(--text-900); font-family:var(--mono); font-weight:600;}
+  .score-breakdown div.row b{color:var(--text-900); font-family:var(--mono); font-weight:600; white-space:nowrap;}
 
   .plain-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px 24px; display:flex; flex-direction:column; justify-content:center; }
   .plain-eyebrow{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; color:var(--accent-strong); text-transform:uppercase; margin-bottom:8px; }
@@ -261,7 +261,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 20:22:02 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 20:29:01 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -269,7 +269,7 @@
     <button role="tab" aria-selected="false" data-panel="seo">SEO <span class="n">55%</span></button>
     <button role="tab" aria-selected="false" data-panel="aeo">AEO <span class="n">65%</span></button>
     <button role="tab" aria-selected="false" data-panel="geo">GEO <span class="n">44%</span></button>
-    <button role="tab" aria-selected="false" data-panel="pages">Pages <span class="n">35</span></button>
+    <button role="tab" aria-selected="false" data-panel="pages">Pages <span class="n">1</span></button>
     <button role="tab" aria-selected="false" data-panel="technical">Technical</button>
   </nav>
 </header>
@@ -293,7 +293,7 @@
             <span class="max">out of 100</span>
           </div>
         </div>
-        <span class="band-pill">Good</span>
+        <span class="band-pill">Fair - needs attention</span>
         <p class="score-note">How well the website's technical setup (speed, structure, links) is built for search engines.</p>
         <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false">Show how this score is calculated</button>
         <div class="score-breakdown" id="scoreBreakdown">
@@ -301,18 +301,18 @@
           <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
           <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
           <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
-          <div class="row"><span>Image alt-text coverage</span><b>4.9 / 15</b></div>
-          <div class="row"><span>Heading structure</span><b>6.7 / 10</b></div>
-          <div class="row"><span>Title and meta best practice</span><b>6.6 / 10</b></div>
-          <div class="row"><span>Structured data coverage</span><b>15 / 15</b></div>
+          <div class="row"><span>Image alt-text coverage</span><b>15 / 15</b></div>
+          <div class="row"><span>Heading structure</span><b>0 / 10</b></div>
+          <div class="row"><span>Title and meta best practice</span><b>0 / 10</b></div>
+          <div class="row"><span>Structured data coverage</span><b>0 / 15</b></div>
           <div class="row"><span>Content integrity (security)</span><b>10 / 10</b></div>
-          <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>93.2 / 110 -&gt; 85/100</b></div>
+          <div class="row" style="border-top:1px solid var(--line); margin-top:4px; padding-top:6px;"><span><b style="color:var(--text-900); font-family:var(--sans);">Total</b></span><b>75 / 110 -&gt; 68/100</b></div>
         </div>
       </div>
 
       <div class="plain-card">
         <h2 class="plain-headline">The technical foundation is solid. The real gap is being found by AI, not Google.</h2>
-        <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 85 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
+        <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 68 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
       </div>
     </div>
 
@@ -337,9 +337,9 @@
 
     <h2 class="section-title">Site snapshot</h2>
     <div class="kpi-grid">
-      <div class="kpi"><div class="label">Pages audited</div><div class="value">35</div><div class="sub">full-site crawl via sitemap</div></div>
-      <div class="kpi"><div class="label">Broken links</div><div class="value pass">0</div><div class="sub">of 13 checked</div></div>
-      <div class="kpi"><div class="label">Pages Google can read &amp; index</div><div class="value pass">100%</div><div class="sub">35 of 35 pages</div></div>
+      <div class="kpi"><div class="label">Pages audited</div><div class="value">1</div><div class="sub">full-site crawl via sitemap</div></div>
+      <div class="kpi"><div class="label">Broken links</div><div class="value pass">0</div><div class="sub">of 0 checked</div></div>
+      <div class="kpi"><div class="label">Pages Google can read &amp; index</div><div class="value partial">0%</div><div class="sub">0 of 1 pages</div></div>
       <div class="kpi"><div class="label">Backlinks (other sites linking here)</div><div class="value">N/A</div><div class="sub">Ahrefs/Semrush plan limit</div></div>
     </div>
   </section>
@@ -467,18 +467,16 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
       <div class="tech-card">
         <h3>XML sitemap index</h3>
         <ul class="sitemap-list">
-          <li><span>post-sitemap.xml</span><span class="d">2026-08-21</span></li>
-          <li><span>page-sitemap.xml</span><span class="d">2026-08-06</span></li>
-          <li><span>category-sitemap.xml</span><span class="d">2026-08-21</span></li>
+          <li><span>(sitemap not reachable this run)</span><span class="d"></span></li>
         </ul>
       </div>
 
       <div class="tech-card">
         <h3>Site configuration</h3>
         <dl class="readout">
-          <div class="item"><dt>HTTPS</dt><dd>Enforced on 35 of 35 audited pages</dd></div>
-          <div class="item"><dt>Mobile viewport</dt><dd>Present on 35 / 35</dd></div>
-          <div class="item"><dt>Canonical tags</dt><dd>Present on 35 / 35 audited pages</dd></div>
+          <div class="item"><dt>HTTPS</dt><dd>Enforced on 1 of 1 audited pages</dd></div>
+          <div class="item"><dt>Mobile viewport</dt><dd>Present on 1 / 1</dd></div>
+          <div class="item"><dt>Canonical tags</dt><dd>Present on 0 / 1 audited pages</dd></div>
           <div class="item"><dt>Character set / language</dt><dd>UTF-8 / en</dd></div>
         </dl>
       </div>
@@ -486,10 +484,10 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
       <div class="tech-card">
         <h3>Link health</h3>
         <dl class="readout">
-          <div class="item"><dt>Internal links checked</dt><dd>13, from homepage</dd></div>
+          <div class="item"><dt>Internal links checked</dt><dd>0, from homepage</dd></div>
           <div class="item"><dt>Broken internal links</dt><dd>0</dd></div>
-          <div class="item"><dt>External outbound links</dt><dd>5, across 5 domains</dd></div>
-          <div class="item"><dt>Domains linked</dt><dd>bigbang.lorealsapmena.com, calendly.com, gevelopers.com, menasearchawards.com, www.linkedin.com</dd></div>
+          <div class="item"><dt>External outbound links</dt><dd>0, across 0 domains</dd></div>
+          <div class="item"><dt>Domains linked</dt><dd>none found</dd></div>
         </dl>
       </div>
 
@@ -506,7 +504,7 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
 
 </main>
 
-<footer class="foot">Digital Rocket audit console &mdash; generated 2026-08-24 &mdash; 35 pages audited via full-site live crawl.</footer>
+<footer class="foot">Digital Rocket audit console &mdash; generated 2026-08-24 &mdash; 1 pages audited via full-site live crawl.</footer>
 
 <script>
 (function(){
@@ -550,55 +548,21 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
   }
 
   var PAGES = [
-    {path:"/blog/", title:"Blog - Digital Rocket IO", titleLen:24, meta:"Insights, playbooks, and updates on lead generation, SEO, AI search (GEO), and performance marketing in Dubai and the UAE.", metaLen:122, h1:"", h1Count:0, h2Count:0, words:462, images:17, missingAlt:7, schema:true, size:94, resp:0},
-    {path:"/blog/ai-seo-agency-dubai-how-to-choose/", title:"How to Choose an AI SEO Agency in Dubai (2026 Guide)", titleLen:52, meta:"Real pricing in AED, a 9-point scoring framework, 12 questions to ask, and the red flags. The Dubai AI SEO agency guide that actually answers the cost question.", metaLen:160, h1:"How to Choose an AI SEO Agency in Dubai (2026)", h1Count:1, h2Count:8, words:3153, images:6, missingAlt:5, schema:true, size:119, resp:0},
-    {path:"/blog/arabic-seo-arabic-ai-search-uae/", title:"Arabic SEO & Arabic AI Search: The Untapped Channel (2026)", titleLen:58, meta:"Arabic is one of the biggest languages online, yet only 0.6% of web content. Here is how UAE and GCC brands can win Arabic SEO and Arabic AI search in 2026, with real data and a six step playbook.", metaLen:196, h1:"Arabic SEO & Arabic AI Search: The Untapped Channel for UAE Brands in 2026", h1Count:1, h2Count:8, words:2093, images:8, missingAlt:7, schema:true, size:108, resp:0},
-    {path:"/blog/performance-marketing-benchmarks-mena-2026/", title:"MENA Performance Marketing Benchmarks 2026: CPC, CPL, ROAS", titleLen:58, meta:"UAE & Saudi CPC, CPL and ROAS benchmarks for 2026 — Google, Meta, Snapchat & TikTok by industry, plus how Google's AI-default search changes paid media.", metaLen:152, h1:"Performance Marketing Benchmarks MENA 2026: CPC, CPL & ROAS by Industry", h1Count:1, h2Count:8, words:2070, images:8, missingAlt:5, schema:true, size:104, resp:0},
-    {path:"/blog/generative-engine-optimization-geo-playbook-uae/", title:"Generative Engine Optimization (GEO): 2026 UAE Playbook | Digital Rocket", titleLen:72, meta:"GEO is how brands get cited by ChatGPT, Gemini and Perplexity. Learn the 9-move generative engine optimization playbook UAE brands can use in 2026.", metaLen:147, h1:"Generative Engine Optimization (GEO): The 2026 Playbook for UAE Brands", h1Count:1, h2Count:9, words:1887, images:8, missingAlt:8, schema:true, size:103, resp:0},
-    {path:"/blog/real-estate-seo-dubai-guide/", title:"Real Estate SEO in Dubai: The 2026 Guide | Digital Rocket", titleLen:57, meta:"Dubai posted AED 917bn in property transactions in 2025 — and nearly every dirham started with a search. The 2026 real estate SEO playbook for developers & brokers: outrank portals, win AI citations, turn search into pipeline.", metaLen:226, h1:"Real Estate SEO in Dubai: The 2026 Guide for Developers & Brokers", h1Count:1, h2Count:9, words:2146, images:9, missingAlt:7, schema:true, size:112, resp:0},
-    {path:"/blog/ai-seo-dubai-search-budgets/", title:"AI SEO in Dubai: Restructure Search Budgets for 2026", titleLen:52, meta:"AI Overviews cut organic clicks by up to 61%. Here's how UAE brands should rebalance SEO, GEO and paid search budgets in 2026 — with data and benchmarks.", metaLen:153, h1:"AI SEO in Dubai: How UAE Brands Should Restructure Search Budgets in 2026", h1Count:1, h2Count:8, words:1903, images:9, missingAlt:6, schema:true, size:120, resp:0},
-    {path:"/", title:"AI-Native Growth Marketing Agency in Dubai | Digital Rocket", titleLen:59, meta:"Digital Rocket is an AI-native growth marketing agency in Dubai, blending SEO, AI search, and performance media to turn marketing spend into real pipeline.", metaLen:155, h1:"", h1Count:0, h2Count:6, words:478, images:36, missingAlt:14, schema:true, size:120, resp:0},
-    {path:"/growth-marketing/", title:"Growth Marketing Services in Dubai & UAE | Digital Rocket", titleLen:57, meta:"Digital Rocket is a growth marketing agency in Dubai. We run full-funnel media, SEO, CRO, and analytics to turn ad spend into predictable, measurable growth across the UAE.", metaLen:172, h1:"Оne-stop shop for Growth Marketing", h1Count:1, h2Count:9, words:600, images:15, missingAlt:14, schema:true, size:129, resp:0},
-    {path:"/compliance/", title:"Compliance - Digital Rocket IO", titleLen:30, meta:"Compliance", metaLen:10, h1:"", h1Count:0, h2Count:0, words:256, images:5, missingAlt:5, schema:true, size:80, resp:0},
-    {path:"/b2b-lead-generation-dubai/", title:"B2B Lead Generation in Dubai | Digital Rocket", titleLen:45, meta:"B2B lead generation in Dubai and the UAE. Digital Rocket builds a predictable pipeline of qualified B2B leads with SEO, LinkedIn, Google Ads, and content that reaches decision makers.", metaLen:183, h1:"B2B Lead Generation in Dubai", h1Count:1, h2Count:10, words:1196, images:6, missingAlt:5, schema:true, size:134, resp:0},
-    {path:"/real-estate-lead-generation-dubai/", title:"Real Estate Lead Generation in Dubai | Digital Rocket", titleLen:53, meta:"Real estate lead generation in Dubai for developers, brokerages, and agents. Digital Rocket builds a pipeline of qualified buyer and investor enquiries with SEO, Google Ads, Meta, and content.", metaLen:192, h1:"Real Estate Lead Generation in Dubai", h1Count:1, h2Count:10, words:1199, images:6, missingAlt:5, schema:true, size:134, resp:0},
-    {path:"/saas-lead-generation/", title:"SaaS Lead Generation in Dubai & UAE | Digital Rocket", titleLen:52, meta:"SaaS lead generation for software and tech companies in Dubai and the UAE. Digital Rocket builds a pipeline of qualified demos and trials with SEO, Google Ads, LinkedIn, and content.", metaLen:182, h1:"SaaS Lead Generation in Dubai", h1Count:1, h2Count:10, words:1172, images:6, missingAlt:5, schema:true, size:134, resp:0},
-    {path:"/real-estate-seo-dubai/", title:"Real Estate SEO Services in Dubai | Digital Rocket", titleLen:50, meta:"Real estate SEO services in Dubai for property developers and brokerages. Earn visibility in Google and AI search, with honest timelines and clear reporting.", metaLen:157, h1:"Real Estate SEO Services in Dubai", h1Count:1, h2Count:10, words:1129, images:6, missingAlt:5, schema:true, size:135, resp:0},
-    {path:"/lead-generation-dubai/", title:"Lead Generation Dubai | Digital Rocket", titleLen:38, meta:"Lead generation in Dubai for B2B companies and startups. Digital Rocket brings qualified leads with SEO, Google Ads, LinkedIn, and content across the UAE.", metaLen:154, h1:"Lead Generation Dubai", h1Count:1, h2Count:10, words:1171, images:6, missingAlt:5, schema:true, size:134, resp:0},
-    {path:"/digital-marketing-for-startups/", title:"Digital Marketing Agency for Startups | Digital Rocket", titleLen:54, meta:"Digital marketing agency for startups in Dubai and the UAE. Growth strategy, SEO, paid, and content built for early-stage budgets and fast traction.", metaLen:148, h1:"Digital Marketing Agency for Startups", h1Count:1, h2Count:10, words:1028, images:6, missingAlt:5, schema:true, size:134, resp:0},
-    {path:"/ppc-management-abu-dhabi/", title:"PPC Management in Abu Dhabi | Digital Rocket", titleLen:44, meta:"PPC management in Abu Dhabi for B2B and enterprise brands. Google Ads, paid search, and social managed for return on spend, with transparent reporting.", metaLen:151, h1:"PPC Management in Abu Dhabi", h1Count:1, h2Count:9, words:893, images:6, missingAlt:5, schema:true, size:131, resp:0},
-    {path:"/seo-agency-dubai/", title:"Top SEO Agency in Dubai | Digital Rocket", titleLen:40, meta:"Top SEO agency in Dubai for local, technical, enterprise, and ecommerce SEO. Rank in Google and AI search, with honest timelines and clear reporting.", metaLen:149, h1:"Top SEO Agency in Dubai", h1Count:1, h2Count:10, words:1029, images:6, missingAlt:5, schema:true, size:143, resp:0},
-    {path:"/seo-services/", title:"SEO Services in the UAE and GCC | Digital Rocket", titleLen:48, meta:"Explore Digital Rocket SEO services across UAE and GCC markets, built to rank in Google and AI search for the keywords that drive qualified pipeline.", metaLen:149, h1:"SEO Services", h1Count:1, h2Count:1, words:226, images:5, missingAlt:5, schema:true, size:77, resp:0},
-    {path:"/seo-services-abu-dhabi/", title:"SEO Services Abu Dhabi | B2B SEO Agency | Digital Rocket", titleLen:56, meta:"Abu Dhabi SEO services for B2B and UAE enterprises: technical SEO, Arabic and English content, AI-first method. MENA Search Awards 2025 winner.", metaLen:143, h1:"SEO Services in Abu Dhabi: B2B-First SEO Agency for UAE Enterprises", h1Count:1, h2Count:14, words:2624, images:30, missingAlt:5, schema:true, size:234, resp:0},
-    {path:"/privacy-policy/", title:"Privacy Policy - Digital Rocket IO", titleLen:34, meta:"Privacy Policy", metaLen:14, h1:"", h1Count:0, h2Count:11, words:832, images:5, missingAlt:5, schema:true, size:84, resp:0},
-    {path:"/prism/", title:"Prism - Digital Rocket IO", titleLen:25, meta:"Better Marketing Decisions 10x Faster", metaLen:37, h1:"", h1Count:0, h2Count:9, words:440, images:12, missingAlt:12, schema:true, size:109, resp:0},
-    {path:"/outcome-based-delivery/", title:"Outcome Based Delivery - Digital Rocket IO", titleLen:42, meta:"Spend where it matters, Win where it counts", metaLen:43, h1:"", h1Count:0, h2Count:4, words:447, images:19, missingAlt:16, schema:true, size:113, resp:0},
-    {path:"/about-us/", title:"About Us - Digital Rocket IO", titleLen:28, meta:"Digital Rocket, headquartered in Dubai, is a tech-enabled Performance marketing agency that pairs highly experienced professionals with best-in-class tools to", metaLen:158, h1:"About Us", h1Count:1, h2Count:2, words:336, images:6, missingAlt:5, schema:true, size:97, resp:0},
-    {path:"/creativeroom/", title:"Creative Room - Digital Rocket IO", titleLen:33, meta:"A fully loaded, Generative AI-powered creative suite", metaLen:52, h1:"Bring your vision to life faster than ever before", h1Count:1, h2Count:4, words:376, images:13, missingAlt:13, schema:true, size:102, resp:0},
-    {path:"/ai-based-optimization/", title:"AI-Based Optimization - Digital Rocket IO", titleLen:41, meta:"We plug and activate the most powerful AI platform in Seconds! We scale your campaigns across platforms & beat your performance goals by deploying AI into", metaLen:154, h1:"Simplify Your Advertising, Scale Your Success", h1Count:1, h2Count:12, words:472, images:15, missingAlt:10, schema:true, size:128, resp:0},
-    {path:"/request-demo/", title:"Request A Demo - Digital Rocket IO", titleLen:34, meta:"Whether you’re looking to optimize spend, generate high-impact creative, or reach the right audience faster, we’ll show you how it all works.", metaLen:141, h1:"Whether you’re looking to optimize spend, generate high-impact creative, or reach the right audience faster, we’ll show you how it all works.", h1Count:1, h2Count:0, words:692, images:5, missingAlt:5, schema:true, size:94, resp:0},
-    {path:"/solutions/", title:"Solutions - Digital Rocket IO", titleLen:29, meta:"", metaLen:0, h1:"Solutions", h1Count:1, h2Count:0, words:170, images:5, missingAlt:5, schema:true, size:76, resp:0},
-    {path:"/contact-us/", title:"Contact Us - Digital Rocket IO", titleLen:30, meta:"Contact Us", metaLen:10, h1:"", h1Count:0, h2Count:0, words:680, images:5, missingAlt:5, schema:true, size:95, resp:0},
-    {path:"/terms-and-conditions/", title:"Terms and Conditions - Digital Rocket IO", titleLen:40, meta:"Terms & Conditions", metaLen:18, h1:"", h1Count:0, h2Count:0, words:783, images:5, missingAlt:5, schema:true, size:84, resp:0},
-    {path:"/legal-notice/", title:"Legal Notice - Digital Rocket IO", titleLen:32, meta:"Legal Notice", metaLen:12, h1:"", h1Count:0, h2Count:0, words:316, images:5, missingAlt:5, schema:true, size:80, resp:0},
-    {path:"/newsletter/", title:"Newsletter - Digital Rocket IO", titleLen:30, meta:"", metaLen:0, h1:"Newsletter", h1Count:1, h2Count:0, words:170, images:5, missingAlt:5, schema:true, size:76, resp:0},
-    {path:"/blog/category/uncategorized/", title:"Uncategorized - Digital Rocket IO", titleLen:33, meta:"", metaLen:0, h1:"", h1Count:0, h2Count:0, words:462, images:17, missingAlt:7, schema:true, size:93, resp:0},
-    {path:"/blog/category/performance-marketing/", title:"Performance Marketing - Digital Rocket IO", titleLen:41, meta:"", metaLen:0, h1:"", h1Count:0, h2Count:0, words:463, images:17, missingAlt:7, schema:true, size:93, resp:0},
-    {path:"/blog/category/seo-ai-search/", title:"SEO & AI Search - Digital Rocket IO", titleLen:35, meta:"SEO, GEO/AEO and AI search strategy for UAE & MENA brands", metaLen:57, h1:"", h1Count:0, h2Count:0, words:465, images:17, missingAlt:7, schema:true, size:94, resp:0}
+    {path:"/", title:"One moment, please...", titleLen:21, meta:"", metaLen:0, h1:"", h1Count:0, h2Count:0, words:12, images:0, missingAlt:0, schema:false, size:12, resp:0}
   ];
 
   /* SEO findings = automated crawl issues (relabelled to Pass/Partial/Fail) + manual SEO checklist highlights */
   var SEO_FINDINGS = [
-    {status:"Partial", title:"On-Page / Title Tag", finding:"5 of 35 audited title tags fall outside the ~30-60 character best-practice range.", rec:"Tighten long titles to under ~60 characters; lengthen very short ones for stronger keyword coverage."},
-    {status:"Partial", title:"On-Page / Meta Description", finding:"19 of 35 audited meta descriptions fall outside the ~120-160 character best-practice range.", rec:"Trim over-length descriptions to under 160 characters; lengthen very short ones."},
-    {status:"Partial", title:"On-Page / Heading Structure", finding:"12 page(s) do not have exactly one H1, diluting the primary topical signal.", rec:"Consolidate to a single H1 per page; demote extras to H2."},
-    {status:"Partial", title:"Content Structure", finding:"11 page(s) have no H2 subheadings despite body copy, reducing scannability.", rec:"Break long-form copy into labelled H2 sections."},
-    {status:"Partial", title:"Accessibility / Image SEO", finding:"35 of 35 pages have at least one image missing alt text (240 images missing alt text in total).", rec:"Audit the shared theme template and page-specific images; add descriptive alt text sitewide."},
+    {status:"Partial", title:"On-Page / Title Tag", finding:"1 of 1 audited title tags fall outside the ~30-60 character best-practice range.", rec:"Tighten long titles to under ~60 characters; lengthen very short ones for stronger keyword coverage."},
+    {status:"Partial", title:"On-Page / Meta Description", finding:"1 of 1 audited meta descriptions fall outside the ~120-160 character best-practice range.", rec:"Trim over-length descriptions to under 160 characters; lengthen very short ones."},
+    {status:"Partial", title:"On-Page / Heading Structure", finding:"1 page(s) do not have exactly one H1, diluting the primary topical signal.", rec:"Consolidate to a single H1 per page; demote extras to H2."},
+    {status:"Partial", title:"Content Structure", finding:"1 page(s) have no H2 subheadings despite body copy, reducing scannability.", rec:"Break long-form copy into labelled H2 sections."},
+    {status:"Partial", title:"Structured Data", finding:"1 of 1 pages carry no schema.org / JSON-LD markup. No audited page has structured data.", rec:"Add Organization schema sitewide, and Service/Article schema on solution pages and blog posts."},
     {status:"Pass", title:"Internal Linking", finding:"Zero broken (4xx/5xx) internal links found.", rec:"Continue periodic link-rot checks, especially after content pruning."},
     {status:"Pass", title:"Indexability", finding:"No noindex directives found; all audited pages are indexable.", rec:"No action needed."},
     {status:"Pass", title:"Mobile / HTTPS", finding:"Viewport meta tag present sitewide and HTTPS enforced on every URL checked.", rec:"No action needed."},
-    {status:"Pass", title:"Crawlability", finding:"Valid robots.txt found and the sitemap index resolved with 3 sub-sitemaps.", rec:"No action needed."},
-    {status:"Pass", title:"Content Depth", finding:"Average 966 words per page (range 170-3153).", rec:"No action needed."},
+    {status:"Fail", title:"Crawlability", finding:"robots.txt or the sitemap index could not be fetched/parsed.", rec:"Verify robots.txt and sitemap_index.xml are reachable and valid."},
+    {status:"Pass", title:"Content Depth", finding:"Average 12 words per page (range 12-12).", rec:"No action needed."},
     {status:"Pass", title:"Content Integrity / Security", finding:"No spam/injected off-site anchor text patterns found this run.", rec:"No action needed. Keep this check running on every refresh."},
     {status:"Partial", title:"Four pages compete for the same search", finding:"Four pages (seo-services, seo-services-abu-dhabi, seo-agency-dubai, real-estate-seo-dubai) all target very similar 'SEO services' searches. When pages compete like this, Google can get confused about which one to show.", rec:"Make sure each page is clearly about something different, or combine the weakest ones."},
     {status:"NotTested", title:"Google's own tracking tool isn't connected", finding:"Google Search Console (the free tool that shows how the site actually performs in real Google searches) isn't connected yet, so some things can't be checked.", rec:"Connect Google Search Console. It takes about 10 minutes."},
@@ -639,7 +603,7 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
 
   /* ---------------- gauge ---------------- */
   var CIRC = 2 * Math.PI * 64;
-  var SCORE = 85;
+  var SCORE = 68;
   var arc = document.getElementById('gaugeArc');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   requestAnimationFrame(function(){
