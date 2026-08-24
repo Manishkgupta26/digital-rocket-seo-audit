@@ -109,7 +109,7 @@
   .gauge-num .max{font-family:var(--mono); font-size:11px; color:var(--text-400);}
   .band-pill{ margin-top:10px; font-family:var(--sans); font-size:12px; font-weight:700; padding:4px 12px; border-radius:99px; background:var(--accent-tint); color:var(--accent); }
   .score-note{font-size:12px; color:var(--text-400); margin-top:10px; line-height:1.5;}
-  .score-toggle{ margin-top:12px; background:var(--accent-tint); border:1px solid transparent; color:var(--accent-strong); font-family:var(--sans); font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:99px; cursor:pointer; }
+  .score-toggle{ margin-top:12px; background:var(--accent-tint); border:1px solid transparent; color:var(--accent-strong); font-family:var(--sans); font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:var(--radius); cursor:pointer; }
   .score-toggle:hover{ background:var(--accent); color:#fff; }
   .score-modal-backdrop{ position:fixed; inset:0; background:rgba(17,24,39,.5); z-index:200; display:none; align-items:center; justify-content:center; padding:24px; }
   .score-modal-backdrop.show{display:flex;}
@@ -274,7 +274,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 22:49:02 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 23:11:04 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -283,6 +283,7 @@
     <button role="tab" aria-selected="false" data-panel="aeo">AEO <span class="n">65%</span></button>
     <button role="tab" aria-selected="false" data-panel="geo">GEO <span class="n">44%</span></button>
     <button role="tab" aria-selected="false" data-panel="pages">Pages <span class="n">35</span></button>
+    <button role="tab" aria-selected="false" data-panel="pagespeed">Page Speed</button>
     <button role="tab" aria-selected="false" data-panel="technical">Technical</button>
     <button role="tab" aria-selected="false" data-panel="changelog">Change log</button>
   </nav>
@@ -293,7 +294,7 @@
   <!-- ============ OVERVIEW ============ -->
   <section class="panel active" id="panel-overview">
     <div class="overview-grid">
-      <div style="margin-top:8px;">
+      <div>
       <h2 class="section-title">Site health score</h2>
       <div class="score-card">
         <div class="gauge-wrap">
@@ -347,6 +348,10 @@
           <div class="kpi"><div class="label">Avg. word count</div><div class="value">966</div><div class="sub">range 170-3153</div></div>
           <div class="kpi"><div class="label">Backlinks</div><div class="value">54</div><div class="sub">42 referring domains, via Semrush</div></div>
           <div class="kpi"><div class="label">External links</div><div class="value">5</div><div class="sub">across 5 domains</div></div>
+          <div class="kpi"><div class="label">Search clicks (90d)</div><div class="value">111</div><div class="sub">via Google Search Console</div></div>
+          <div class="kpi"><div class="label">Search impressions (90d)</div><div class="value">4.62K</div><div class="sub">avg. CTR 2.4%</div></div>
+          <div class="kpi"><div class="label">Avg. search position</div><div class="value">36.1</div><div class="sub">across 197 tracked queries</div></div>
+          <div class="kpi"><div class="label">PageSpeed (mobile)</div><div class="value partial">85</div><div class="sub">see Page Speed tab for full detail</div></div>
         </div>
       </div>
     </div>
@@ -404,7 +409,6 @@
       <button class="chip-toggle status-filter" data-group="seo" data-status="Fail" aria-pressed="false">Needs fixing <span class="c" id="cnt-seo-Fail"></span></button>
       <button class="chip-toggle status-filter" data-group="seo" data-status="Partial" aria-pressed="false">Could improve <span class="c" id="cnt-seo-Partial"></span></button>
       <button class="chip-toggle status-filter" data-group="seo" data-status="Pass" aria-pressed="false">Working well <span class="c" id="cnt-seo-Pass"></span></button>
-      <button class="chip-toggle status-filter" data-group="seo" data-status="NotTested" aria-pressed="false">Not checked yet <span class="c" id="cnt-seo-NotTested"></span></button>
       <span class="result-count" id="seoResultCount"></span>
     </div>
     <div id="seoFindingsList"></div>
@@ -488,6 +492,54 @@
         </thead>
         <tbody id="pagesBody"></tbody>
       </table>
+    </div>
+  </section>
+
+  <!-- ============ PAGE SPEED ============ -->
+  <section class="panel" id="panel-pagespeed">
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h3>Mobile</h3>
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr); margin-bottom:16px;">
+          <div class="kpi"><div class="label">Performance</div><div class="value partial">85</div></div>
+          <div class="kpi"><div class="label">Accessibility</div><div class="value pass">95</div></div>
+          <div class="kpi"><div class="label">Best Practices</div><div class="value pass">100</div></div>
+          <div class="kpi"><div class="label">SEO</div><div class="value pass">100</div></div>
+        </div>
+        <dl class="readout">
+          <div class="item"><dt>First Contentful Paint</dt><dd>2.4 s</dd></div>
+          <div class="item"><dt>Largest Contentful Paint</dt><dd>2.8 s</dd></div>
+          <div class="item"><dt>Total Blocking Time</dt><dd>140 ms</dd></div>
+          <div class="item"><dt>Cumulative Layout Shift</dt><dd>0.087</dd></div>
+          <div class="item"><dt>Speed Index</dt><dd>4.9 s</dd></div>
+        </dl>
+      </div>
+
+      <div class="tech-card">
+        <h3>Desktop</h3>
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr); margin-bottom:16px;">
+          <div class="kpi"><div class="label">Performance</div><div class="value pass">93</div></div>
+          <div class="kpi"><div class="label">Accessibility</div><div class="value pass">94</div></div>
+          <div class="kpi"><div class="label">Best Practices</div><div class="value pass">100</div></div>
+          <div class="kpi"><div class="label">SEO</div><div class="value pass">100</div></div>
+        </div>
+        <dl class="readout">
+          <div class="item"><dt>First Contentful Paint</dt><dd>0.6 s</dd></div>
+          <div class="item"><dt>Largest Contentful Paint</dt><dd>0.7 s</dd></div>
+          <div class="item"><dt>Total Blocking Time</dt><dd>110 ms</dd></div>
+          <div class="item"><dt>Cumulative Layout Shift</dt><dd>0.111</dd></div>
+          <div class="item"><dt>Speed Index</dt><dd>1.7 s</dd></div>
+        </dl>
+      </div>
+
+      <div class="tech-card" style="grid-column:1 / -1;">
+        <h3>About this data</h3>
+        <dl class="readout">
+          <div class="item"><dt>Source</dt><dd>Google PageSpeed Insights (Lighthouse lab test) on the live homepage, checked manually on 2026-08-24.</dd></div>
+          <div class="item"><dt>Real-user (field) data</dt><dd>Not available -- Google doesn't yet have enough real-visitor traffic on this domain to report actual Core Web Vitals from real users. The scores above are a lab simulation of a fixed device/network, not live visitor experience.</dd></div>
+          <div class="item"><dt>Search visibility (from the Overview tab)</dt><dd>111 clicks and 4.62K impressions over the last 90 days via Google Search Console, average position 36.1.</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
@@ -655,7 +707,7 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
     {status:"Partial", title:"Four pages compete for the same search", finding:"Four pages (seo-services, seo-services-abu-dhabi, seo-agency-dubai, real-estate-seo-dubai) all target very similar 'SEO services' searches. When pages compete like this, Google can get confused about which one to show.", rec:"Make sure each page is clearly about something different, or combine the weakest ones."},
     {status:"Pass", title:"Google Search Console is connected", finding:"Checked directly: GSC is live for digital-rocket.io. Last ~90 days: 111 clicks, 4.62K impressions, 2.4% average CTR, average position 36.1 -- real ranking data, not a gap.", rec:"Average position 36 is the real opportunity here: the site is being seen but rarely clicked. Worth a look, not a setup task."},
     {status:"Pass", title:"Homepage loads fast on mobile", finding:"Checked directly via Google PageSpeed Insights (mobile): Performance 85, Accessibility 95, Best Practices 100, SEO 100. No hidden speed problem.", rec:"Performance is already good; re-check after any major homepage change (new video, new hero asset)."},
-    {status:"Partial", title:"'About Us' page is quite short", finding:"The About Us page is one of the most important pages for building trust, and it's only about 200 words even though the founder has a strong track record worth telling.", rec:"Expand this page with real details about experience, results, and the team."}
+    {status:"Pass", title:"'About Us' page is detailed", finding:"Checked directly: the About Us page runs about 1,700 words and names the Founder & CEO by role, with a dedicated company story and guiding-principles section -- this is a substantial trust-building page, not a thin one.", rec:"Nothing to fix here; keep it updated as the team or track record changes."}
   ];
   var AEO_FINDINGS = [
     {status:"Pass", title:"Content answers questions directly", finding:"Blog posts already open sections with a clear, direct answer before going into detail. The GEO post defines 'What is GEO?' right away instead of building up to it, which is exactly what Google and AI tools look for.", rec:"Keep writing this way for every new page and post."},
@@ -762,7 +814,7 @@ Sitemap: https://digital-rocket.io/sitemap_index.xml</div>
     });
     render();
   }
-  makeFindingsPanel('seo', SEO_FINDINGS, true);
+  makeFindingsPanel('seo', SEO_FINDINGS, false);
   makeFindingsPanel('aeo', AEO_FINDINGS, false);
   makeFindingsPanel('geo', GEO_FINDINGS, true);
 
