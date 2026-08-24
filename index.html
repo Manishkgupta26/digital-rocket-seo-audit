@@ -261,7 +261,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 20:29:37 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 20:42:23 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -294,10 +294,8 @@
           </div>
         </div>
         <span class="band-pill">Good</span>
-        <p class="score-note">How well the website's technical setup (speed, structure, links) is built for search engines.</p>
         <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false">Show how this score is calculated</button>
         <div class="score-breakdown" id="scoreBreakdown">
-          <div class="row" style="padding-bottom:6px;"><span>Scored out of 110 points total, then converted to a mark out of 100</span></div>
           <div class="row"><span>Crawlability and indexability</span><b>20 / 20</b></div>
           <div class="row"><span>HTTPS and mobile viewport</span><b>15 / 15</b></div>
           <div class="row"><span>Internal link health</span><b>15 / 15</b></div>
@@ -310,37 +308,43 @@
         </div>
       </div>
 
-      <div class="plain-card">
-        <h2 class="plain-headline">The technical foundation is solid. The real gap is being found by AI, not Google.</h2>
-        <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 85 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
+      <div>
+        <h2 class="section-title">The three things that decide how customers find you online</h2>
+        <div class="pillar-mini-grid">
+          <button class="pillar-mini" data-goto="seo">
+            <div class="top-row"><span class="name">SEO</span><span class="pct">55%</span></div>
+            <div class="full">Showing up in a regular Google search</div>
+            <div class="one-liner">55% : solid technical base, a few pages overlap</div>
+          </button>
+          <button class="pillar-mini" data-goto="aeo">
+            <div class="top-row"><span class="name">AEO</span><span class="pct">65%</span></div>
+            <div class="full">Being the direct answer Google shows</div>
+            <div class="one-liner">65% : good writing style, missing some tagging</div>
+          </button>
+          <button class="pillar-mini" data-goto="geo">
+            <div class="top-row"><span class="name">GEO</span><span class="pct">44%</span></div>
+            <div class="full">Getting recommended by AI chatbots</div>
+            <div class="one-liner">44% : no AI-visibility tracking set up yet</div>
+          </button>
+        </div>
+
+        <h2 class="section-title" style="margin-top:18px;">Site snapshot</h2>
+        <div class="kpi-grid">
+          <div class="kpi"><div class="label">Pages audited</div><div class="value">35</div><div class="sub">full-site crawl via sitemap</div></div>
+          <div class="kpi"><div class="label">Schema.org coverage</div><div class="value pass">100%</div><div class="sub">35 of 35 pages</div></div>
+          <div class="kpi"><div class="label">Image alt coverage</div><div class="value fail">32%</div><div class="sub">240 of 355 images missing</div></div>
+          <div class="kpi"><div class="label">Broken links</div><div class="value pass">0</div><div class="sub">of 13 checked</div></div>
+          <div class="kpi"><div class="label">Spam links found</div><div class="value pass">0</div><div class="sub">none found this run</div></div>
+          <div class="kpi"><div class="label">Avg. word count</div><div class="value">966</div><div class="sub">range 170-3153</div></div>
+          <div class="kpi"><div class="label">Backlinks</div><div class="value">N/A</div><div class="sub">Ahrefs/Semrush plan limit</div></div>
+        </div>
       </div>
     </div>
 
-    <h2 class="section-title">The three things that decide how customers find you online</h2>
-    <div class="pillar-mini-grid">
-      <button class="pillar-mini" data-goto="seo">
-        <div class="top-row"><span class="name">SEO</span><span class="pct">55%</span></div>
-        <div class="full">Showing up in a regular Google search</div>
-        <div class="one-liner">55% : solid technical base, a few pages overlap</div>
-      </button>
-      <button class="pillar-mini" data-goto="aeo">
-        <div class="top-row"><span class="name">AEO</span><span class="pct">65%</span></div>
-        <div class="full">Being the direct answer Google shows</div>
-        <div class="one-liner">65% : good writing style, missing some tagging</div>
-      </button>
-      <button class="pillar-mini" data-goto="geo">
-        <div class="top-row"><span class="name">GEO</span><span class="pct">44%</span></div>
-        <div class="full">Getting recommended by AI chatbots</div>
-        <div class="one-liner">44% : no AI-visibility tracking set up yet</div>
-      </button>
-    </div>
-
-    <h2 class="section-title">Site snapshot</h2>
-    <div class="kpi-grid">
-      <div class="kpi"><div class="label">Pages audited</div><div class="value">35</div><div class="sub">full-site crawl via sitemap</div></div>
-      <div class="kpi"><div class="label">Broken links</div><div class="value pass">0</div><div class="sub">of 13 checked</div></div>
-      <div class="kpi"><div class="label">Pages Google can read &amp; index</div><div class="value pass">100%</div><div class="sub">35 of 35 pages</div></div>
-      <div class="kpi"><div class="label">Backlinks (other sites linking here)</div><div class="value">N/A</div><div class="sub">Ahrefs/Semrush plan limit</div></div>
+    <div class="plain-card" style="margin-top:22px;">
+      <div class="plain-eyebrow">Executive summary</div>
+      <h2 class="plain-headline">The technical foundation is solid. The real gap is being found by AI, not Google.</h2>
+      <p class="plain-body">This audit combines a full crawl of the live site with a separate manual review of how ready it is for search engines, answer boxes, and AI chatbots. The crawl came back clean: 85 out of 100, 0 broken links, 0 security issues. The manual review tells a more specific story. SEO sits at 55%, held back by a few concrete things like overlapping service pages and some missing schema markup. AEO is at 65%, mostly a handful of structured-data pieces that are missing. GEO is furthest behind at 44%, largely because there's no way yet to check whether AI tools even mention Digital Rocket. None of it needs a rebuild. The SEO, AEO and GEO tabs list exactly what's left to fix.</p>
     </div>
   </section>
 
