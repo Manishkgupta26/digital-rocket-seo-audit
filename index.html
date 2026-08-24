@@ -109,8 +109,8 @@
   .gauge-num .max{font-family:var(--mono); font-size:11px; color:var(--text-400);}
   .band-pill{ margin-top:10px; font-family:var(--sans); font-size:12px; font-weight:700; padding:4px 12px; border-radius:99px; background:var(--accent-tint); color:var(--accent); }
   .score-note{font-size:12px; color:var(--text-400); margin-top:10px; line-height:1.5;}
-  .score-toggle{ margin-top:12px; background:none; border:1px dashed var(--line); color:var(--text-600); font-family:var(--sans); font-size:11.5px; font-weight:600; padding:5px 12px; border-radius:99px; cursor:pointer; }
-  .score-toggle:hover{ border-color:var(--accent); color:var(--accent); }
+  .score-toggle{ margin-top:12px; background:var(--accent-tint); border:1px solid transparent; color:var(--accent-strong); font-family:var(--sans); font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:99px; cursor:pointer; }
+  .score-toggle:hover{ background:var(--accent); color:#fff; }
   .score-modal-backdrop{ position:fixed; inset:0; background:rgba(17,24,39,.5); z-index:200; display:none; align-items:center; justify-content:center; padding:24px; }
   .score-modal-backdrop.show{display:flex;}
   .score-modal{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 20px 20px; max-width:420px; width:100%; max-height:80vh; overflow-y:auto; }
@@ -274,7 +274,7 @@
       </div>
     </div>
     <div class="meta-row">
-      <span><b>Last refreshed</b> 2026-08-24 22:30:20 (UTC+05:30)</span>
+      <span><b>Last refreshed</b> 2026-08-24 22:36:38 (UTC+05:30)</span>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Audit sections">
@@ -293,8 +293,9 @@
   <!-- ============ OVERVIEW ============ -->
   <section class="panel active" id="panel-overview">
     <div class="overview-grid">
+      <div>
+      <h2 class="section-title">Site health score</h2>
       <div class="score-card">
-        <h2 class="section-title" style="align-self:flex-start;">Site health score</h2>
         <div class="gauge-wrap">
           <svg width="150" height="150" viewBox="0 0 150 150">
             <circle cx="75" cy="75" r="64" fill="none" stroke="var(--surface-2)" stroke-width="13"/>
@@ -310,6 +311,7 @@
         <span class="band-pill">Good</span>
         <p class="score-note">11 checks reviewed this run, 0 need urgent attention</p>
         <button class="score-toggle" id="scoreToggleBtn" aria-expanded="false" aria-haspopup="dialog">Show how this score is calculated</button>
+      </div>
       </div>
 
       <div>
